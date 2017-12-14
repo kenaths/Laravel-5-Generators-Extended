@@ -83,7 +83,9 @@ class PivotMigrationMakeCommand extends GeneratorCommand
     protected function buildClass($name = null)
     {
         $stub = $this->files->get($this->getStub());
-
+        
+        $name = $this->parseName($name);
+        
         return $this->replacePivotTableName($stub)
             ->replaceSchema($stub)
             ->replaceClass($stub, $name);
